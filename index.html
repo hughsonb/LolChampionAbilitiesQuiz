@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Champion League Quiz Test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--- 
+    TO DO:
+    0. Add to GitHub
+    7. If we can do basic stuff then we can get spicy after like adding links to the abilities or videos :) 
+    9. When champion row is completed please remove
+    9. Add (Sort by Alphabetical Champion)
+  10. In a game enter champ name and it pulls it up
+  11.
+
+-->
+
+
+<div class="container mt-3">
+  <h2 class="d-flex justify-content-center">Champion Abilities 2021/02/04</h2>
+  <div class="d-flex justify-content-between">
+    <form>
+      <label for="AnswerBox">Ability Name:</label>
+      <input type="text" id="AnswerBox">
+    </form>
+    <button type="button" onclick="showAnswers()">Show Answers</button>
+    <button type="button" onclick="clearAnswers()">Clear Answers</button>
+    <p id="answerTotal"><span id="numerator">?</span>/<span id="denominator">total</span></p>
+  </div>            
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>Champion Name</th>
+        <th>Q</th>
+        <th>W</th>
+        <th>E</th>
+        <th>R</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <!-- A Champions -->
+        <td>Aatrox</td>
+        <td class="ability" data-abilityname = "The Darkin Blade"></td>
+        <td class="ability" data-abilityname = "Infernal Chains"></td>
+        <td class="ability" data-abilityname = "Umbral Dash"></td>
+        <td class="ability" data-abilityname = "World Ender"></td>
+      </tr>
+      <tr>
+        <td>Ahri</td>
+        <td class="ability" data-abilityname = "Orb of Deception"></td>
+        <td class="ability" data-abilityname = "Fox Fire"></td>
+        <td class="ability" data-abilityname = "Charm"></td>
+        <td class="ability" data-abilityname = "Spirit Rush"></td>
+      </tr>
+      <tr>
+        <td>Akali</td>
+        <td class="ability" data-abilityname = "Five Point Strike"></td>
+        <td class="ability" data-abilityname = "Twilight Shroud"></td>
+        <td class="ability" data-abilityname = "Shuriken Flip"></td>
+        <td class="ability" data-abilityname = "Perfect Execution"></td>
+      </tr>
+      <tr>
+        <td>Amumu</td>
+        <td class="ability" data-abilityname = "Bandage Toss"></td>
+        <td class="ability" data-abilityname = "Despair"></td>
+        <td class="ability" data-abilityname = "Tantrum"></td>
+        <td class="ability" data-abilityname = "Curse Of The Sad Mummy"></td>
+      </tr>
+      <tr>
+        <td>Anivia</td>
+        <td class="ability" data-abilityname = "Flash Frost"></td>
+        <td class="ability" data-abilityname = "Crystallize"></td>
+        <td class="ability" data-abilityname = "Frostbite"></td>
+        <td class="ability" data-abilityname = "Glacial Storm"></td>
+      </tr>
+      <tr>
+        <td>Annie</td>
+        <td class="ability" data-abilityname = "Disintegrate"></td>
+        <td class="ability" data-abilityname = "Incinerate"></td>
+        <td class="ability" data-abilityname = "Molten Shield"></td>
+        <td class="ability" data-abilityname = "Summon: Tibbers"></td>
+      </tr>
+      <tr>
+        <td>Aphelios</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="ability" data-abilityname = "Moonlight Vigil"></td>
+      </tr>
+      <tr>
+        <td>Ashe</td>
+        <td class="ability" data-abilityname = "Ranger's Focus"></td>
+        <td class="ability" data-abilityname = "Volley"></td>
+        <td class="ability" data-abilityname = "Hawkshot"></td>
+        <td class="ability" data-abilityname = "Enchanted Crystal Arrow"></td>
+      </tr>
+      <tr>
+        <td>Aurelion Sol</td>
+        <td class="ability" data-abilityname = "Starsurge"></td>
+        <td class="ability" data-abilityname = "Celestial Expansion"></td>
+        <td class="ability" data-abilityname = "Comet of Legend"></td>
+        <td class="ability" data-abilityname = "Voice of Light"></td>
+      </tr>
+      <tr>
+        <td>Azir</td>
+        <td class="ability" data-abilityname = "Conquering Sands"></td>
+        <td class="ability" data-abilityname = "Arise"></td>
+        <td class="ability" data-abilityname = "Shifting Sands"></td>
+        <td class="ability" data-abilityname = "Emperor's Divide"></td>
+      </tr>
+      <!-- B CHAMPIONS -->
+      <tr>
+        <td>Bard</td>
+        <td class="ability" data-abilityname = "Cosmic Binding"></td>
+        <td class="ability" data-abilityname = "Caretaker's Shrine"></td>
+        <td class="ability" data-abilityname = "Magical Journey"></td>
+        <td class="ability" data-abilityname = "Tempered Fate"></td>
+      </tr>
+      <tr>
+        <td>Blitzcrank</td>
+        <td class="ability" data-abilityname = "Rocket Grab"></td>
+        <td class="ability" data-abilityname = "Overdrive"></td>
+        <td class="ability" data-abilityname = "Power Fist"></td>
+        <td class="ability" data-abilityname = "Static Field"></td>
+      </tr>
+      <tr>
+        <td>Brand</td>
+        <td class="ability" data-abilityname = "Sear"></td>
+        <td class="ability" data-abilityname = "Pillar of Flame"></td>
+        <td class="ability" data-abilityname = "Conflagration"></td>
+        <td class="ability" data-abilityname = "Pyroclasm"></td>
+      </tr>
+      <tr>
+        <td>Braum</td>
+        <td class="ability" data-abilityname = "Winter's Bite"></td>
+        <td class="ability" data-abilityname = "Stand Behind Me"></td>
+        <td class="ability" data-abilityname = "Unbreakable"></td>
+        <td class="ability" data-abilityname = "Glacial Fissure"></td>
+      </tr>
+      <!-- C Champions -->
+      <tr>
+        <td>Caitlyn</td>
+        <td class="ability" data-abilityname = "Piltover Peacemaker"></td>
+        <td class="ability" data-abilityname = "Yordle Snap Trap"></td>
+        <td class="ability" data-abilityname = "90 Caliber Net"></td>
+        <td class="ability" data-abilityname = "Ace In The Hole"></td>
+      </tr>
+      <tr>
+        <td>Camille</td>
+        <td class="ability" data-abilityname = "Precision Protocol"></td>
+        <td class="ability" data-abilityname = "Tactical Sweep"></td>
+        <td class="ability" data-abilityname = "Hookshot"></td>
+        <td class="ability" data-abilityname = "The Hextech Ultimatum"></td>
+      </tr>
+      <tr>
+        <td>Cassiopeia</td>
+        <td class="ability" data-abilityname = "Noxious Blast"></td>
+        <td class="ability" data-abilityname = "Miasma"></td>
+        <td class="ability" data-abilityname = "Twin Fang"></td>
+        <td class="ability" data-abilityname = "Petrifying Gaze"></td>
+      </tr>
+      <tr>
+        <td>Cho'Gath</td>
+        <td class="ability" data-abilityname = "Rupture"></td>
+        <td class="ability" data-abilityname = "Feral Scream"></td>
+        <td class="ability" data-abilityname = "Vorpal Spikes"></td>
+        <td class="ability" data-abilityname = "Feast"></td>
+      </tr>
+      <tr>
+        <td>Corki</td>
+        <td class="ability" data-abilityname = "Phosphorus Bomb"></td>
+        <td class="ability" data-abilityname = "Valkyrie"></td>
+        <td class="ability" data-abilityname = "Gatling Gun"></td>
+        <td class="ability" data-abilityname = "Missile Barrage"></td>
+      </tr>
+      <!-- D Champions -->
+      <tr>
+        <td>Darius</td>
+        <td class="ability" data-abilityname = "Decimate"></td>
+        <td class="ability" data-abilityname = "Crippling Strike"></td>
+        <td class="ability" data-abilityname = "Apprehend"></td>
+        <td class="ability" data-abilityname = "Noxian Guillotine"></td>
+      </tr>
+      <tr>
+        <td>Diana</td>
+        <td class="ability" data-abilityname = "Crescent Strike"></td>
+        <td class="ability" data-abilityname = "Pale Cascade"></td>
+        <td class="ability" data-abilityname = "Lunar Rush"></td>
+        <td class="ability" data-abilityname = "Moonfall"></td>
+      </tr>
+      <tr>
+        <td>Dr. Mundo</td>
+        <td class="ability" data-abilityname = "Infected Cleaver"></td>
+        <td class="ability" data-abilityname = "Burning Agony"></td>
+        <td class="ability" data-abilityname = "Masochism"></td>
+        <td class="ability" data-abilityname = "Sadism"></td>
+      </tr>
+      <tr>
+        <td>Draven</td>
+        <td class="ability" data-abilityname = "Spinning Axe"></td>
+        <td class="ability" data-abilityname = "Blood Rush"></td>
+        <td class="ability" data-abilityname = "Stand Aside"></td>
+        <td class="ability" data-abilityname = "Whirling Death"></td>
+      </tr>
+      <!-- E Champions -->
+      <tr>
+        <td>Ekko</td>
+        <td class="ability" data-abilityname = "Timewinder"></td>
+        <td class="ability" data-abilityname = "Parallel Convergence"></td>
+        <td class="ability" data-abilityname = "Phase Dive"></td>
+        <td class="ability" data-abilityname = "Chronobreak"></td>
+      </tr>
+      <tr>
+        <td>Elise (Human)</td>
+        <td class="ability" data-abilityname = "Neurotoxin"></td>
+        <td class="ability" data-abilityname = "Volatile Spiderling"></td>
+        <td class="ability" data-abilityname = "Cocoon"></td>
+        <td class="ability" data-abilityname = "Spider Form"></td>
+      </tr>
+      <tr>
+        <td>Elise (Spider)</td>
+        <td class="ability" data-abilityname = "Venomous Bite"></td>
+        <td class="ability" data-abilityname = "Skittering Frenzy"></td>
+        <td class="ability" data-abilityname = "Rappel"></td>
+        <td class="ability" data-abilityname = "Spider Form"></td>
+      </tr>
+      <tr>
+        <td>Evelynn</td>
+        <td class="ability" data-abilityname = "Hate Spike"></td>
+        <td class="ability" data-abilityname = "Allure"></td>
+        <td class="ability" data-abilityname = "Whiplash"></td>
+        <td class="ability" data-abilityname = "Last Caress"></td>
+      </tr>
+      <tr>
+        <td>Ezreal</td>
+        <td class="ability" data-abilityname = "Mystic Shot"></td>
+        <td class="ability" data-abilityname = "Essence Flux"></td>
+        <td class="ability" data-abilityname = "Arcane Shift"></td>
+        <td class="ability" data-abilityname = "Trueshot Barrage"></td>
+      </tr>
+      <!-- F Champions -->
+      <tr>
+        <td>Fiora</td>
+        <td class="ability" data-abilityname = "Lunge"></td>
+        <td class="ability" data-abilityname = "Riposte"></td>
+        <td class="ability" data-abilityname = "Bladework"></td>
+        <td class="ability" data-abilityname = "Grand Challenge"></td>
+      </tr>
+      <tr>
+        <td>Fizz</td>
+        <td class="ability" data-abilityname = "Urchin Strike"></td>
+        <td class="ability" data-abilityname = "Seastone Trident"></td>
+        <td class="ability" data-abilityname = "Playful Trickster"></td>
+        <td class="ability" data-abilityname = "Chum The Waters"></td>
+      </tr>
+      <!-- G Champions --> 
+      <tr>
+        <td>Galio</td>
+        <td class="ability" data-abilityname = "Winds Of War"></td>
+        <td class="ability" data-abilityname = "Shield Of Durand"></td>
+        <td class="ability" data-abilityname = "Justice Punch"></td>
+        <td class="ability" data-abilityname = "Hero's Entrance"></td>
+      </tr>
+      <tr>
+        <td>Gangplank</td>
+        <td class="ability" data-abilityname = "Parley"></td>
+        <td class="ability" data-abilityname = "Remove Scurvy"></td>
+        <td class="ability" data-abilityname = "Powder Keg"></td>
+        <td class="ability" data-abilityname = "Cannon Barrage"></td>
+      </tr>
+      <tr>
+        <td>Garen</td>
+        <td class="ability" data-abilityname = "Decisive Strike"></td>
+        <td class="ability" data-abilityname = "Courage"></td>
+        <td class="ability" data-abilityname = "Judgment"></td>
+        <td class="ability" data-abilityname = "Demacian Justice"></td>
+      </tr>
+      <tr>
+        <td>Gnar (Mini)</td>
+        <td class="ability" data-abilityname = "Boomerang Throw"></td>
+        <td class="ability" data-abilityname = "Hyper"></td>
+        <td class="ability" data-abilityname = "Hop"></td>
+        <td class="ability" data-abilityname = "GNAR!"></td>
+      </tr>
+      <tr>
+        <td>Gnar (Mega)</td>
+        <td class="ability" data-abilityname = "Boulder Toss"></td>
+        <td class="ability" data-abilityname = "Wallop"></td>
+        <td class="ability" data-abilityname = "Crunch"></td>
+        <td class="ability" data-abilityname = "GNAR!"></td>
+      </tr>
+      <tr>
+        <td>Gragas</td>
+        <td class="ability" data-abilityname = "Barrel Roll"></td>
+        <td class="ability" data-abilityname = "Drunken Rage"></td>
+        <td class="ability" data-abilityname = "Body Slam"></td>
+        <td class="ability" data-abilityname = "Explosive Cask"></td>
+      </tr>
+      <tr>
+        <td>Graves</td>
+        <td class="ability" data-abilityname = "End Of The Line"></td>
+        <td class="ability" data-abilityname = "Smoke Screen"></td>
+        <td class="ability" data-abilityname = "Quickdraw"></td>
+        <td class="ability" data-abilityname = "Collateral Damage"></td>
+      </tr> 
+      <!-- H Champions -->
+      <tr>
+        <td>Hecarim</td>
+        <td class="ability" data-abilityname = "Rampage"></td>
+        <td class="ability" data-abilityname = "Spirit Of Dread"></td>
+        <td class="ability" data-abilityname = "Devastating Charge"></td>
+        <td class="ability" data-abilityname = "Onslaught Of Shadows"></td>
+      </tr>
+      <tr>
+        <td>Heimerdinger</td>
+        <td class="ability" data-abilityname = "H-28 G Evolution Turret"></td>
+        <td class="ability" data-abilityname = "Hextech Micro-Rockets"></td>
+        <td class="ability" data-abilityname = "Ch-2 Electron Storm Grenade"></td>
+        <td class="ability" data-abilityname = "Upgrade"></td>
+      </tr>
+      <!-- I Champions -->
+      <tr>
+        <td>Illaoi</td>
+        <td class="ability" data-abilityname = "Tentacle Smash"></td>
+        <td class="ability" data-abilityname = "Harsh Lesson"></td>
+        <td class="ability" data-abilityname = "Test Of Spirit"></td>
+        <td class="ability" data-abilityname = "Leap Of Faith"></td>
+      </tr>
+      <tr>
+        <td>Irelia</td>
+        <td class="ability" data-abilityname = "Bladesurge"></td>
+        <td class="ability" data-abilityname = "Defiant Dance"></td>
+        <td class="ability" data-abilityname = "Flawless Duet"></td>
+        <td class="ability" data-abilityname = "Vanguard's Edge"></td>
+      </tr>
+      <tr>
+        <td>Ivern</td>
+        <td class="ability" data-abilityname = "Rootcaller"></td>
+        <td class="ability" data-abilityname = "Brushmaker"></td>
+        <td class="ability" data-abilityname = "Triggerseed"></td>
+        <td class="ability" data-abilityname = "Daisy!"></td>
+      </tr>
+      <!-- J Champions -->
+      <tr>
+        <td>Janna</td>
+        <td class="ability" data-abilityname = "Howling Gale"></td>
+        <td class="ability" data-abilityname = "Zephyr"></td>
+        <td class="ability" data-abilityname = "Eye Of The Storm"></td>
+        <td class="ability" data-abilityname = "Monsoon"></td>
+      </tr>
+      <tr>
+        <td>Jarvan IV</td>
+        <td class="ability" data-abilityname = "Dragon Strike"></td>
+        <td class="ability" data-abilityname = "Golden Aegis"></td>
+        <td class="ability" data-abilityname = "Demacian Standard"></td>
+        <td class="ability" data-abilityname = "Cataclysm"></td>
+      </tr>
+      <tr>
+        <td>Jax</td>
+        <td class="ability" data-abilityname = "Leap Strike"></td>
+        <td class="ability" data-abilityname = "Empower"></td>
+        <td class="ability" data-abilityname = "Counter Strike"></td>
+        <td class="ability" data-abilityname = "Grandmaster's Might"></td>
+      </tr>
+      <tr>
+        <td>Jayce (Hammer)</td>
+        <td class="ability" data-abilityname = "To The Skies!"></td>
+        <td class="ability" data-abilityname = "Lightning Field"></td>
+        <td class="ability" data-abilityname = "Thundering Blow"></td>
+        <td class="ability" data-abilityname = "Mercury Cannon"></td>
+      </tr>
+      <tr>
+        <td>Jayce (Cannon)</td>
+        <td class="ability" data-abilityname = "Shock Blast"></td>
+        <td class="ability" data-abilityname = "Hyper Charge"></td>
+        <td class="ability" data-abilityname = "Acceleration Gate"></td>
+        <td class="ability" data-abilityname = "Mercury Hammer"></td>
+      </tr>
+      <tr>
+        <td>Jhin</td>
+        <td class="ability" data-abilityname = "Dancing Grenade"></td>
+        <td class="ability" data-abilityname = "Deadly Flourish"></td>
+        <td class="ability" data-abilityname = "Captive Audience"></td>
+        <td class="ability" data-abilityname = "Curtain Call"></td>
+      </tr>
+      <tr>
+        <td>Jinx</td>
+        <td class="ability" data-abilityname = "Switcheroo!"></td>
+        <td class="ability" data-abilityname = "Zap!"></td>
+        <td class="ability" data-abilityname = "Flame Chompers!"></td>
+        <td class="ability" data-abilityname = "Super Mega Death Rocket!"></td>
+      </tr>
+      <!-- K Champions -->
+      <tr>
+        <td>Kai'sa</td>
+        <td class="ability" data-abilityname = "Icathian Rain"></td>
+        <td class="ability" data-abilityname = "Void Seeker"></td>
+        <td class="ability" data-abilityname = "Supercharge"></td>
+        <td class="ability" data-abilityname = "Killer Instinct"></td>
+      </tr>
+      <tr>
+        <td>Kalista</td>
+        <td class="ability" data-abilityname = "Pierce"></td>
+        <td class="ability" data-abilityname = "Sentinel"></td>
+        <td class="ability" data-abilityname = "Rend"></td>
+        <td class="ability" data-abilityname = "Fate's Call"></td>
+      </tr>
+      <tr>
+        <td>Karma</td>
+        <td class="ability" data-abilityname = "Inner Flame"></td>
+        <td class="ability" data-abilityname = "Focused Resolve"></td>
+        <td class="ability" data-abilityname = "Inspire"></td>
+        <td class="ability" data-abilityname = "Mantra"></td>
+      </tr>
+      <tr>
+        <td>Karthus</td>
+        <td class="ability" data-abilityname = "Lay Waste"></td>
+        <td class="ability" data-abilityname = "Wall Of Pain"></td>
+        <td class="ability" data-abilityname = "Defile"></td>
+        <td class="ability" data-abilityname = "Requiem"></td>
+      </tr>
+      <tr>
+        <td>Kassadin</td>
+        <td class="ability" data-abilityname = "Null Sphere"></td>
+        <td class="ability" data-abilityname = "Nether Blade"></td>
+        <td class="ability" data-abilityname = "Force Pulse"></td>
+        <td class="ability" data-abilityname = "Riftwalk"></td>
+      </tr>
+      <tr>
+        <td>Katarina</td>
+        <td class="ability" data-abilityname = "Bouncing Blade"></td>
+        <td class="ability" data-abilityname = "Preparation"></td>
+        <td class="ability" data-abilityname = "Shunpo"></td>
+        <td class="ability" data-abilityname = "Death Lotus"></td>
+      </tr>
+      <tr>
+        <td>Kayle</td>
+        <td class="ability" data-abilityname = "Radiant Blast"></td>
+        <td class="ability" data-abilityname = "Celestial Blessing"></td>
+        <td class="ability" data-abilityname = "Starfire Spellblade"></td>
+        <td class="ability" data-abilityname = "Divine Judgment"></td>
+      </tr>
+      <tr>
+        <td>Kayn</td>
+        <td class="ability" data-abilityname = "Reaping Slash"></td>
+        <td class="ability" data-abilityname = "Blade's Reach"></td>
+        <td class="ability" data-abilityname = "Shadow Step"></td>
+        <td class="ability" data-abilityname = "Umbral Trespass"></td>
+      </tr>
+      <tr>
+        <td>Kennen</td>
+        <td class="ability" data-abilityname = "Thundering Shuriken"></td>
+        <td class="ability" data-abilityname = "Electrical Surge"></td>
+        <td class="ability" data-abilityname = "Lightning Rush"></td>
+        <td class="ability" data-abilityname = "Slicing Maelstrom"></td>
+      </tr>
+      <tr>
+        <td>Kha'Zix</td>
+        <td class="ability" data-abilityname = "Taste Their Fear"></td>
+        <td class="ability" data-abilityname = "Void Spike"></td>
+        <td class="ability" data-abilityname = "Leap"></td>
+        <td class="ability" data-abilityname = "Void Assault"></td>
+      </tr>
+      <tr>
+        <td>Kindred</td>
+        <td class="ability" data-abilityname = "Dance Of Arrows"></td>
+        <td class="ability" data-abilityname = "Wolf's Frenzy"></td>
+        <td class="ability" data-abilityname = "Mounting Dread"></td>
+        <td class="ability" data-abilityname = "Lamb's Respite"></td>
+      </tr>
+      <tr>
+        <td>Kled</td>
+        <td class="ability" data-abilityname = "Bear Trap On A Rope"></td>
+        <td class="ability" data-abilityname = "Violent Tendencies"></td>
+        <td class="ability" data-abilityname = "Jousting"></td>
+        <td class="ability" data-abilityname = "Charge!"></td>
+      </tr>
+      <tr>
+        <td>Kog'Maw</td>
+        <td class="ability" data-abilityname = "Caustic Spittle"></td>
+        <td class="ability" data-abilityname = "Bio-Arcane Barrage"></td>
+        <td class="ability" data-abilityname = "Void Ooze"></td>
+        <td class="ability" data-abilityname = "Living Artillery"></td>
+      </tr>
+      <!-- L Champions -->
+      <tr>
+        <td>LeBlanc</td>
+        <td class="ability" data-abilityname = "Sigil Of Malice"></td>
+        <td class="ability" data-abilityname = "Distortion"></td>
+        <td class="ability" data-abilityname = "Ethereal Chains"></td>
+        <td class="ability" data-abilityname = "Mimic"></td>
+      </tr>
+      <tr>
+        <td>Lee Sin (First Cast)</td>
+        <td class="ability" data-abilityname = "Sonic Wave"></td>
+        <td class="ability" data-abilityname = "Safeguard"></td>
+        <td class="ability" data-abilityname = "Tempest"></td>
+        <td class="ability" data-abilityname = "Dragon's Rage"></td>
+      </tr>
+      <tr>
+        <td>Lee Sin (Second Cast)</td>
+        <td class="ability" data-abilityname = "Resonating Strike"></td>
+        <td class="ability" data-abilityname = "Iron Will"></td>
+        <td class="ability" data-abilityname = "Cripple"></td>
+        <td class="ability" data-abilityname = "Dragon's Rage"></td>
+      </tr>
+      <tr>
+        <td>Leona</td>
+        <td class="ability" data-abilityname = "Shield Of Daybreak"></td>
+        <td class="ability" data-abilityname = "Eclipse"></td>
+        <td class="ability" data-abilityname = "Zenith Blade"></td>
+        <td class="ability" data-abilityname = "Solar Flare"></td>
+      </tr>
+      <tr>
+        <td>Lissandra</td>
+        <td class="ability" data-abilityname = "Ice Shard"></td>
+        <td class="ability" data-abilityname = "Ring Of Frost"></td>
+        <td class="ability" data-abilityname = "Glacial Path"></td>
+        <td class="ability" data-abilityname = "Frozen Tomb"></td>
+      </tr>
+      <tr>
+        <td>Lucian</td>
+        <td class="ability" data-abilityname = "Piercing Light"></td>
+        <td class="ability" data-abilityname = "Ardent Blaze"></td>
+        <td class="ability" data-abilityname = "Relentless Pursuit"></td>
+        <td class="ability" data-abilityname = "The Culling"></td>
+      </tr>
+      <tr>
+        <td>Lulu</td>
+        <td class="ability" data-abilityname = "Glitterlance"></td>
+        <td class="ability" data-abilityname = "Whimsy"></td>
+        <td class="ability" data-abilityname = "Help Pix!"></td>
+        <td class="ability" data-abilityname = "Wild Growth"></td>
+      </tr>
+      <tr>
+        <td>Lux</td>
+        <td class="ability" data-abilityname = "Light Binding"></td>
+        <td class="ability" data-abilityname = "Prismatic Barrier"></td>
+        <td class="ability" data-abilityname = "Lucent Singularity"></td>
+        <td class="ability" data-abilityname = "Final Spark"></td>
+      </tr>
+      <!-- M Champions -->
+      <tr>
+        <td>Malphite</td>
+        <td class="ability" data-abilityname = "Seismic Shard"></td>
+        <td class="ability" data-abilityname = "Thunderclap"></td>
+        <td class="ability" data-abilityname = "Ground Slam"></td>
+        <td class="ability" data-abilityname = "Unstoppable Force"></td>
+      </tr>
+      <tr>
+        <td>Malzahar</td>
+        <td class="ability" data-abilityname = "Call Of The Void"></td>
+        <td class="ability" data-abilityname = "Void Swarm"></td>
+        <td class="ability" data-abilityname = "Malefic Visions"></td>
+        <td class="ability" data-abilityname = "Nether Grasp"></td>
+      </tr>
+      <tr>
+        <td>Maokai</td>
+        <td class="ability" data-abilityname = "Bramble Smash"></td>
+        <td class="ability" data-abilityname = "Twisted Advance"></td>
+        <td class="ability" data-abilityname = "Sapling Toss"></td>
+        <td class="ability" data-abilityname = "Nature's Grasp"></td>
+      </tr>
+      <tr>
+        <td>Master Yi</td>
+        <td class="ability" data-abilityname = "Alpha Strike"></td>
+        <td class="ability" data-abilityname = "Meditate"></td>
+        <td class="ability" data-abilityname = "Wuju Style"></td>
+        <td class="ability" data-abilityname = "Highlander"></td>
+      </tr>
+      <tr>
+        <td>Miss Fortune</td>
+        <td class="ability" data-abilityname = "Double Up"></td>
+        <td class="ability" data-abilityname = "Strut"></td>
+        <td class="ability" data-abilityname = "Make It Rain"></td>
+        <td class="ability" data-abilityname = "Bullet Time"></td>
+      </tr>
+      <tr>
+        <td>Mordekaiser</td>
+        <td class="ability" data-abilityname = "Obliterate"></td>
+        <td class="ability" data-abilityname = "Indestructible"></td>
+        <td class="ability" data-abilityname = "Death's Grasp"></td>
+        <td class="ability" data-abilityname = "Realm of Death"></td>
+      </tr>
+      <tr>
+        <td>Morgana</td>
+        <td class="ability" data-abilityname = "Dark Binding"></td>
+        <td class="ability" data-abilityname = "Tormented Shadow"></td>
+        <td class="ability" data-abilityname = "Black Shield"></td>
+        <td class="ability" data-abilityname = "Soul Shackles"></td>
+      </tr>
+      <!-- N Champions -->
+      <tr>
+        <td>Nami</td>
+        <td class="ability" data-abilityname = "Aqua Prison"></td>
+        <td class="ability" data-abilityname = "Ebb And Flow"></td>
+        <td class="ability" data-abilityname = "Tidecaller's Blessing"></td>
+        <td class="ability" data-abilityname = "Tidal Wave"></td>
+      </tr>
+      <tr>
+        <td>Nasus</td>
+        <td class="ability" data-abilityname = "Siphoning Strike"></td>
+        <td class="ability" data-abilityname = "Wither"></td>
+        <td class="ability" data-abilityname = "Spirit Fire"></td>
+        <td class="ability" data-abilityname = "Fury Of The Sands"></td>
+      </tr>
+      <tr>
+        <td>Nautilus</td>
+        <td class="ability" data-abilityname = "Dredge Line"></td>
+        <td class="ability" data-abilityname = "Titan's Wrath"></td>
+        <td class="ability" data-abilityname = "Riptide"></td>
+        <td class="ability" data-abilityname = "Depth Charge"></td>
+      </tr>
+      <tr>
+        <td>Neeko</td>
+        <td class="ability" data-abilityname = "Blooming Burst"></td>
+        <td class="ability" data-abilityname = "Shapesplitter"></td>
+        <td class="ability" data-abilityname = "Tangle Barbs"></td>
+        <td class="ability" data-abilityname = "Pop Blossom"></td>
+      </tr>
+      <tr>
+        <td>Nidalee (Human)</td>
+        <td class="ability" data-abilityname = "Javelin Toss"></td>
+        <td class="ability" data-abilityname = "Bushwhack"></td>
+        <td class="ability" data-abilityname = "Primal Surge"></td>
+        <td class="ability" data-abilityname = "Aspect Of The Cougar"></td>
+      </tr>
+      <tr>
+        <td>Nidalee (Cougar)</td>
+        <td class="ability" data-abilityname = "Takedown"></td>
+        <td class="ability" data-abilityname = "Pounce"></td>
+        <td class="ability" data-abilityname = "Swipe"></td>
+        <td class="ability" data-abilityname = "Aspect Of The Cougar"></td>
+      </tr>
+      <tr>
+        <td>Nocturne</td>
+        <td class="ability" data-abilityname = "Duskbringer"></td>
+        <td class="ability" data-abilityname = "Shroud Of Darkness"></td>
+        <td class="ability" data-abilityname = "Unspeakable Horror"></td>
+        <td class="ability" data-abilityname = "Paranoia"></td>
+      </tr>
+      <tr>
+        <td>Nunu & Willump</td>
+        <td class="ability" data-abilityname = "Consume"></td>
+        <td class="ability" data-abilityname = "Biggest Snowball Ever!"></td>
+        <td class="ability" data-abilityname = "Snowball Barrage"></td>
+        <td class="ability" data-abilityname = "Absolute Zero"></td>
+      </tr> 
+      <!-- O Champions -->
+      <tr>
+        <td>Olaf</td>
+        <td class="ability" data-abilityname = "Undertow"></td>
+        <td class="ability" data-abilityname = "Vicious Strikes"></td>
+        <td class="ability" data-abilityname = "Reckless Swing"></td>
+        <td class="ability" data-abilityname = "Ragnarok"></td>
+      </tr>
+      <tr>
+        <td>Orianna</td>
+        <td class="ability" data-abilityname = "Attack"></td>
+        <td class="ability" data-abilityname = "Dissonance"></td>
+        <td class="ability" data-abilityname = "Protect"></td>
+        <td class="ability" data-abilityname = "Shockwave"></td>
+      </tr>
+      <tr>
+        <td>Ornn</td>
+        <td class="ability" data-abilityname = "Volcanic Rupture"></td>
+        <td class="ability" data-abilityname = "Bellows Breath"></td>
+        <td class="ability" data-abilityname = "Searing Charge"></td>
+        <td class="ability" data-abilityname = "Call Of The Forge God"></td>
+      </tr>
+      <!-- P Champions -->
+      <tr>
+        <td>Pantheon</td>
+        <td class="ability" data-abilityname = "Comet Spear"></td>
+        <td class="ability" data-abilityname = "Shield Vault"></td>
+        <td class="ability" data-abilityname = "Aegis Assault"></td>
+        <td class="ability" data-abilityname = "Grand Starfall"></td>
+      </tr>
+      <tr>
+        <td>Poppy</td>
+        <td class="ability" data-abilityname = "Hammer Shock"></td>
+        <td class="ability" data-abilityname = "Steadfast Presence"></td>
+        <td class="ability" data-abilityname = "Heroic Charge"></td>
+        <td class="ability" data-abilityname = "Keeper's Verdict"></td>
+      </tr>
+      <tr>
+        <td>Pyke</td>
+        <td class="ability" data-abilityname = "Bone Skewer"></td>
+        <td class="ability" data-abilityname = "Ghostwater Dive"></td>
+        <td class="ability" data-abilityname = "Phantom Undertow"></td>
+        <td class="ability" data-abilityname = "Death From Below"></td>
+      </tr>
+      <!-- Q Champions -->
+      <tr>
+        <td>Qiyana</td>
+        <td class="ability" data-abilityname = "Elemental Wrath"></td>
+        <td class="ability" data-abilityname = "Terrasphere"></td>
+        <td class="ability" data-abilityname = "Audacity"></td>
+        <td class="ability" data-abilityname = "Supreme Display Of Talent"></td>
+      </tr>
+      <tr>
+        <td>Quinn</td>
+        <td class="ability" data-abilityname = "Blinding Assault"></td>
+        <td class="ability" data-abilityname = "Heightened Senses"></td>
+        <td class="ability" data-abilityname = "Vault"></td>
+        <td class="ability" data-abilityname = "Behind Enemy Lines"></td>
+      </tr>
+      <!-- R Champions -->
+      <tr>
+        <td>Rakan</td>
+        <td class="ability" data-abilityname = "Gleaming Quill"></td>
+        <td class="ability" data-abilityname = "Grand Entrance"></td>
+        <td class="ability" data-abilityname = "Battle Dance"></td>
+        <td class="ability" data-abilityname = "The Quickness"></td>
+      </tr>
+      <tr>
+        <td>Rammus</td>
+        <td class="ability" data-abilityname = "Powerball"></td>
+        <td class="ability" data-abilityname = "Defensive Ball Curl"></td>
+        <td class="ability" data-abilityname = "Frenzying Taunt"></td>
+        <td class="ability" data-abilityname = "Tremors"></td>
+      </tr>
+      <tr>
+        <td>Rek'Sai (Unburrowed)</td>
+        <td class="ability" data-abilityname = "Queen's Wrath"></td>
+        <td class="ability" data-abilityname = "Burrow"></td>
+        <td class="ability" data-abilityname = "Furious Bite"></td>
+        <td class="ability" data-abilityname = "Void Rush"></td>
+      </tr>
+      <tr>
+        <td>Rek'sai (Burrowed)</td>
+        <td class="ability" data-abilityname = "Prey Seeker"></td>
+        <td class="ability" data-abilityname = "Unburrow"></td>
+        <td class="ability" data-abilityname = "Tunnel"></td>
+        <td class="ability" data-abilityname = "Void Rush"></td>
+      </tr>
+      <tr>
+        <td>Rell</td>
+        <td class="ability" data-abilityname = "Shattering Strike"></td>
+        <td class="ability" data-abilityname = "Crash Down"></td>
+        <td class="ability" data-abilityname = "Attract And Repel"></td>
+        <td class="ability" data-abilityname = "Magnet Storm"></td>
+      </tr>
+      <tr>
+        <td>Renekton</td>
+        <td class="ability" data-abilityname = "Cull The Meek"></td>
+        <td class="ability" data-abilityname = "Ruthless Predator"></td>
+        <td class="ability" data-abilityname = "Slice And Dice"></td>
+        <td class="ability" data-abilityname = "Dominus"></td>
+      </tr>
+      <tr>
+        <td>Rengar</td>
+        <td class="ability" data-abilityname = "Savagery"></td>
+        <td class="ability" data-abilityname = "Battle Roar"></td>
+        <td class="ability" data-abilityname = "Bola Strike"></td>
+        <td class="ability" data-abilityname = "Thrill Of The Hunt"></td>
+      </tr>
+      <tr>
+        <td>Riven</td>
+        <td class="ability" data-abilityname = "Broken Wings"></td>
+        <td class="ability" data-abilityname = "Ki Burst"></td>
+        <td class="ability" data-abilityname = "Valor"></td>
+        <td class="ability" data-abilityname = "Blade Of The Exile"></td>
+      </tr>
+      <tr>
+        <td>Rumble</td>
+        <td class="ability" data-abilityname = "Flamespitter"></td>
+        <td class="ability" data-abilityname = "Scrap Shield"></td>
+        <td class="ability" data-abilityname = "Electro Harpoon"></td>
+        <td class="ability" data-abilityname = "The Equalizer"></td>
+      </tr>
+      <tr>
+        <td>Ryze</td>
+        <td class="ability" data-abilityname = "Overload"></td>
+        <td class="ability" data-abilityname = "Rune Prison"></td>
+        <td class="ability" data-abilityname = "Spell Flux"></td>
+        <td class="ability" data-abilityname = "Realm Warp"></td>
+      </tr>
+      <!-- S Champions -->
+      <tr>
+        <td>Samira</td>
+        <td class="ability" data-abilityname = "Flair"></td>
+        <td class="ability" data-abilityname = "Blade Whirl"></td>
+        <td class="ability" data-abilityname = "Wild Rush"></td>
+        <td class="ability" data-abilityname = "Inferno Trigger"></td>
+      </tr>
+      <tr>
+        <td>Sejuani</td>
+        <td class="ability" data-abilityname = "Arctic Assault"></td>
+        <td class="ability" data-abilityname = "Winter's Wrath"></td>
+        <td class="ability" data-abilityname = "Permafrost"></td>
+        <td class="ability" data-abilityname = "Glacial Prison"></td>
+      </tr>
+      <tr>
+        <td>Senna</td>
+        <td class="ability" data-abilityname = "Piercing Darkness"></td>
+        <td class="ability" data-abilityname = "Last Embrace"></td>
+        <td class="ability" data-abilityname = "Curse Of The Black Mist"></td>
+        <td class="ability" data-abilityname = "Dawning Shadow"></td>
+      </tr>
+      <tr>
+        <td>Seraphine</td>
+        <td class="ability" data-abilityname = "High Note"></td>
+        <td class="ability" data-abilityname = "Surround Sound"></td>
+        <td class="ability" data-abilityname = "Beat Drop"></td>
+        <td class="ability" data-abilityname = "Encore"></td>
+      </tr>
+      <tr>
+        <td>Sett</td>
+        <td class="ability" data-abilityname = "Knuckle Up"></td>
+        <td class="ability" data-abilityname = "Haymaker"></td>
+        <td class="ability" data-abilityname = "Facebreaker"></td>
+        <td class="ability" data-abilityname = "Show Stopper"></td>
+      </tr>
+      <tr>
+        <td>Shaco</td>
+        <td class="ability" data-abilityname = "Deceive"></td>
+        <td class="ability" data-abilityname = "Jack In The Box"></td>
+        <td class="ability" data-abilityname = "Two-Shiv Poison"></td>
+        <td class="ability" data-abilityname = "Hallucinate"></td>
+      </tr>
+      <tr>
+        <td>Shen</td>
+        <td class="ability" data-abilityname = "Twilight Assault"></td>
+        <td class="ability" data-abilityname = "Spirit's Refuge"></td>
+        <td class="ability" data-abilityname = "Shadow Dash"></td>
+        <td class="ability" data-abilityname = "Stand United"></td>
+      </tr>
+      <tr>
+        <td>Shyvana</td>
+        <td class="ability" data-abilityname = "Twin Bite"></td>
+        <td class="ability" data-abilityname = "Burnout"></td>
+        <td class="ability" data-abilityname = "Flame Breath"></td>
+        <td class="ability" data-abilityname = "Dragon's Descent"></td>
+      </tr>
+      <tr>
+        <td>Singed</td>
+        <td class="ability" data-abilityname = "Poison Trail"></td>
+        <td class="ability" data-abilityname = "Mega Adhesive"></td>
+        <td class="ability" data-abilityname = "Fling"></td>
+        <td class="ability" data-abilityname = "Insanity Potion"></td>
+      </tr>
+      <tr>
+        <td>Sion</td>
+        <td class="ability" data-abilityname = "Decimating Smash"></td>
+        <td class="ability" data-abilityname = "Soul Furnace"></td>
+        <td class="ability" data-abilityname = "Roar Of The Slayer"></td>
+        <td class="ability" data-abilityname = "Unstoppable Onslaught"></td>
+      </tr>
+      <tr>
+        <td>Sivir</td>
+        <td class="ability" data-abilityname = "Boomerang Blade"></td>
+        <td class="ability" data-abilityname = "Ricochet"></td>
+        <td class="ability" data-abilityname = "Spell Shield"></td>
+        <td class="ability" data-abilityname = "On The Hunt"></td>
+      </tr>
+      <tr>
+        <td>Skarner</td>
+        <td class="ability" data-abilityname = "Crystal Slash"></td>
+        <td class="ability" data-abilityname = "Crystalline Exoskeleton"></td>
+        <td class="ability" data-abilityname = "Fracture"></td>
+        <td class="ability" data-abilityname = "Impale"></td>
+      </tr>
+      <tr>
+        <td>Sona</td>
+        <td class="ability" data-abilityname = "Hymn Of Valor"></td>
+        <td class="ability" data-abilityname = "Aria Of Perseverance"></td>
+        <td class="ability" data-abilityname = "Song Of Celerity"></td>
+        <td class="ability" data-abilityname = "Crescendo"></td>
+      </tr>
+      <tr>
+        <td>Soraka</td>
+        <td class="ability" data-abilityname = "Starcall"></td>
+        <td class="ability" data-abilityname = "Astral Infusion"></td>
+        <td class="ability" data-abilityname = "Equinox"></td>
+        <td class="ability" data-abilityname = "Wish"></td>
+      </tr>
+      <tr>
+        <td>Swain</td>
+        <td class="ability" data-abilityname = "Death's Hand"></td>
+        <td class="ability" data-abilityname = "Vision Of Empire"></td>
+        <td class="ability" data-abilityname = "Nevermove"></td>
+        <td class="ability" data-abilityname = "Demonic Ascension"></td>
+      </tr>
+      <tr>
+        <td>Sylas</td>
+        <td class="ability" data-abilityname = "Chain Lash"></td>
+        <td class="ability" data-abilityname = "Kingslayer"></td>
+        <td class="ability" data-abilityname = "Abscond/Abduct"></td>
+        <td class="ability" data-abilityname = "Hijack"></td>
+      </tr>
+      <tr>
+        <td>Syndra</td>
+        <td class="ability" data-abilityname = "Dark Sphere"></td>
+        <td class="ability" data-abilityname = "Force Of Will"></td>
+        <td class="ability" data-abilityname = "Scatter The Weak"></td>
+        <td class="ability" data-abilityname = "Unleashed Power"></td>
+      </tr>
+      <!-- T Champions -->
+      <tr>
+        <td>Tahm Kench</td>
+        <td class="ability" data-abilityname = "Tongue Lash"></td>
+        <td class="ability" data-abilityname = "Devour"></td>
+        <td class="ability" data-abilityname = "Thick Skin"></td>
+        <td class="ability" data-abilityname = "Abyssal Voyage"></td>
+      </tr>
+      <tr>
+        <td>Taliyah</td>
+        <td class="ability" data-abilityname = "Threaded Volley"></td>
+        <td class="ability" data-abilityname = "Seismic Shove"></td>
+        <td class="ability" data-abilityname = "Unraveled Earth"></td>
+        <td class="ability" data-abilityname = "Weaver's Wall"></td>
+      </tr>
+      <tr>
+        <td>Talon</td>
+        <td class="ability" data-abilityname = "Noxian Diplomacy"></td>
+        <td class="ability" data-abilityname = "Rake"></td>
+        <td class="ability" data-abilityname = "Assassin's Path"></td>
+        <td class="ability" data-abilityname = "Shadow Assault"></td>
+      </tr>
+      <tr>
+        <td>Taric</td>
+        <td class="ability" data-abilityname = "Starlight's Touch"></td>
+        <td class="ability" data-abilityname = "Bastion"></td>
+        <td class="ability" data-abilityname = "Dazzle"></td>
+        <td class="ability" data-abilityname = "Cosmic Radiance"></td>
+      </tr>
+      <tr>
+        <td>Teemo</td>
+        <td class="ability" data-abilityname = "Blinding Dart"></td>
+        <td class="ability" data-abilityname = "Move Quick"></td>
+        <td class="ability" data-abilityname = "Toxic Shot"></td>
+        <td class="ability" data-abilityname = "Noxious Trap"></td>
+      </tr>
+      <tr>
+        <td>Thresh</td>
+        <td class="ability" data-abilityname = "Death Sentence"></td>
+        <td class="ability" data-abilityname = "Dark Passage"></td>
+        <td class="ability" data-abilityname = "Flay"></td>
+        <td class="ability" data-abilityname = "The Box"></td>
+      </tr>
+      <tr>
+        <td>Tristana</td>
+        <td class="ability" data-abilityname = "Rapid Fire"></td>
+        <td class="ability" data-abilityname = "Rocket Jump"></td>
+        <td class="ability" data-abilityname = "Explosive Charge"></td>
+        <td class="ability" data-abilityname = "Buster Shot"></td>
+      </tr>
+      <tr>
+        <td>Trundle</td>
+        <td class="ability" data-abilityname = "Chomp"></td>
+        <td class="ability" data-abilityname = "Frozen Domain"></td>
+        <td class="ability" data-abilityname = "Pillar Of Ice"></td>
+        <td class="ability" data-abilityname = "Subjugate"></td>
+      </tr>
+      <tr>
+        <td>Tryndamere</td>
+        <td class="ability" data-abilityname = "Bloodlust"></td>
+        <td class="ability" data-abilityname = "Mocking Shout"></td>
+        <td class="ability" data-abilityname = "Spinning Slash"></td>
+        <td class="ability" data-abilityname = "Undying Rage"></td>
+      </tr>
+      <tr>
+        <td>Twisted Fate</td>
+        <td class="ability" data-abilityname = "Wild Cards"></td>
+        <td class="ability" data-abilityname = "Pick A Card"></td>
+        <td class="ability" data-abilityname = "Stacked Deck"></td>
+        <td class="ability" data-abilityname = "Destiny"></td>
+      </tr>
+      <tr>
+        <td>Twitch</td>
+        <td class="ability" data-abilityname = "Ambush"></td>
+        <td class="ability" data-abilityname = "Venom Cask"></td>
+        <td class="ability" data-abilityname = "Contaminate"></td>
+        <td class="ability" data-abilityname = "Spray And Pray"></td>
+      </tr>
+      <!-- U Champions-->
+      <tr>
+        <td>Udyr</td>
+        <td class="ability" data-abilityname = "Tiger Stance"></td>
+        <td class="ability" data-abilityname = "Turtle Stance"></td>
+        <td class="ability" data-abilityname = "Bear Stance"></td>
+        <td class="ability" data-abilityname = "Phoenix Stance"></td>
+      </tr>
+      <tr>
+        <td>Urgot</td>
+        <td class="ability" data-abilityname = "Corrosive Charge"></td>
+        <td class="ability" data-abilityname = "Purge"></td>
+        <td class="ability" data-abilityname = "Disdain"></td>
+        <td class="ability" data-abilityname = "Fear Beyond Death"></td>
+      </tr> 
+      <!-- V Champions -->
+      <tr>
+        <td>Varus</td>
+        <td class="ability" data-abilityname = "Piercing Arrow"></td>
+        <td class="ability" data-abilityname = "Blighted Quiver"></td>
+        <td class="ability" data-abilityname = "Hail Of Arrows"></td>
+        <td class="ability" data-abilityname = "Chain Of Corruption"></td>
+      </tr>
+      <tr>
+        <td>Vayne</td>
+        <td class="ability" data-abilityname = "Tumble"></td>
+        <td class="ability" data-abilityname = "Silver Bolts"></td>
+        <td class="ability" data-abilityname = "Condemn"></td>
+        <td class="ability" data-abilityname = "Final Hour"></td>
+      </tr>
+      <tr>
+        <td>Veigar</td>
+        <td class="ability" data-abilityname = "Baleful Strike"></td>
+        <td class="ability" data-abilityname = "Dark Matter"></td>
+        <td class="ability" data-abilityname = "Event Horizon"></td>
+        <td class="ability" data-abilityname = "Primordial Burst"></td>
+      </tr>
+      <tr>
+        <td>Vel'Koz</td>
+        <td class="ability" data-abilityname = "Plasma Fission"></td>
+        <td class="ability" data-abilityname = "Void Rift"></td>
+        <td class="ability" data-abilityname = "Tectonic Disruption"></td>
+        <td class="ability" data-abilityname = "Life Form Disintegration Ray"></td>
+      </tr>
+      <tr>
+        <td>Vi</td>
+        <td class="ability" data-abilityname = "Vault Breaker"></td>
+        <td class="ability" data-abilityname = "Denting Blows"></td>
+        <td class="ability" data-abilityname = "Excessive Force"></td>
+        <td class="ability" data-abilityname = "Assault And Battery"></td>
+      </tr>
+      <tr>
+        <td>Viego</td>
+        <td class="ability" data-abilityname = "Blade Of The Ruined King"></td>
+        <td class="ability" data-abilityname = "Spectral Maw"></td>
+        <td class="ability" data-abilityname = "Harrowed Path"></td>
+        <td class="ability" data-abilityname = "Heartbreaker"></td>
+      </tr>
+      <tr>
+        <td>Viktor</td>
+        <td class="ability" data-abilityname = "Siphon Power"></td>
+        <td class="ability" data-abilityname = "Gravity Field"></td>
+        <td class="ability" data-abilityname = "Death Ray"></td>
+        <td class="ability" data-abilityname = "Chaos Storm"></td>
+      </tr>
+      <tr>
+        <td>Vladimir</td>
+        <td class="ability" data-abilityname = "Transfusion"></td>
+        <td class="ability" data-abilityname = "Sanguine Pool"></td>
+        <td class="ability" data-abilityname = "Tides Of Blood"></td>
+        <td class="ability" data-abilityname = "Hemoplague"></td>
+      </tr>
+      <tr>
+        <td>Volibear</td>
+        <td class="ability" data-abilityname = "Thundering Smash"></td>
+        <td class="ability" data-abilityname = "Frenzied Maul"></td>
+        <td class="ability" data-abilityname = "Sky Splitter"></td>
+        <td class="ability" data-abilityname = "Stormbringer"></td>
+      </tr>
+      <!-- W Champions -->
+      <tr>
+        <td>Warwick</td>
+        <td class="ability" data-abilityname = "Jaws Of The Beast"></td>
+        <td class="ability" data-abilityname = "Blood Hunt"></td>
+        <td class="ability" data-abilityname = "Primal Howl"></td>
+        <td class="ability" data-abilityname = "Infinite Duress"></td>
+      </tr>
+      <tr>
+        <td>Wukong</td>
+        <td class="ability" data-abilityname = "Crushing Blow"></td>
+        <td class="ability" data-abilityname = "Warrior Trickster"></td>
+        <td class="ability" data-abilityname = "Nimbus Strike"></td>
+        <td class="ability" data-abilityname = "Cyclone"></td>
+      </tr>
+      <!-- X Champions -->
+      <tr>
+        <td>Xayah</td>
+        <td class="ability" data-abilityname = "Double Daggers"></td>
+        <td class="ability" data-abilityname = "Deadly Plumage"></td>
+        <td class="ability" data-abilityname = "Bladecaller"></td>
+        <td class="ability" data-abilityname = "Featherstorm"></td>
+      </tr>
+      <tr>
+        <td>Xerath</td>
+        <td class="ability" data-abilityname = "Arcanopulse"></td>
+        <td class="ability" data-abilityname = "Eye Of Destruction"></td>
+        <td class="ability" data-abilityname = "Shocking Orb"></td>
+        <td class="ability" data-abilityname = "Rite Of The Arcane"></td>
+      </tr>
+      <tr>
+        <td>Xin Zhao</td>
+        <td class="ability" data-abilityname = "Three Talon Strike"></td>
+        <td class="ability" data-abilityname = "Wind Becomes Lightning"></td>
+        <td class="ability" data-abilityname = "Audacious Charge"></td>
+        <td class="ability" data-abilityname = "Crescent Guard"></td>
+      </tr>
+      <!-- Y Champions -->
+      <tr>
+        <td>Yasuo</td>
+        <td class="ability" data-abilityname = "Steel Tempest"></td>
+        <td class="ability" data-abilityname = "Wind Wall"></td>
+        <td class="ability" data-abilityname = "Sweeping Blade"></td>
+        <td class="ability" data-abilityname = "Last Breath"></td>
+      </tr>
+      <tr>
+        <td>Yone</td>
+        <td class="ability" data-abilityname = "Mortal Steel"></td>
+        <td class="ability" data-abilityname = "Spirit Cleave"></td>
+        <td class="ability" data-abilityname = "Soul Unbound"></td>
+        <td class="ability" data-abilityname = "Fate Sealed"></td>
+      </tr>
+      <tr>
+        <td>Yorick</td>
+        <td class="ability" data-abilityname = "Last Rites"></td>
+        <td class="ability" data-abilityname = "Dark Procession"></td>
+        <td class="ability" data-abilityname = "Mourning Mist"></td>
+        <td class="ability" data-abilityname = "Eulogy Of The Isles"></td>
+      </tr>
+      <tr>
+        <td>Yuumi</td>
+        <td class="ability" data-abilityname = "Prowling Projectile"></td>
+        <td class="ability" data-abilityname = "You And Me!"></td>
+        <td class="ability" data-abilityname = "Zoomies"></td>
+        <td class="ability" data-abilityname = "Final Chapter"></td>
+      </tr>
+      <!-- Z Champions -->
+      <tr>
+        <td>Zac</td>
+        <td class="ability" data-abilityname = "Stretching Strikes"></td>
+        <td class="ability" data-abilityname = "Unstable Matter"></td>
+        <td class="ability" data-abilityname = "Elastic Slingshot"></td>
+        <td class="ability" data-abilityname = "Let's Bounce"></td>
+      </tr>
+      <tr>
+        <td>Zed</td>
+        <td class="ability" data-abilityname = "Razor Shuriken"></td>
+        <td class="ability" data-abilityname = "Living Shadow"></td>
+        <td class="ability" data-abilityname = "Shadow Slash"></td>
+        <td class="ability" data-abilityname = "Death Mark"></td>
+      </tr>
+      <tr>
+        <td>Ziggs</td>
+        <td class="ability" data-abilityname = "Bouncing Bomb"></td>
+        <td class="ability" data-abilityname = "Satchel Charge"></td>
+        <td class="ability" data-abilityname = "Hexplosive Minefield"></td>
+        <td class="ability" data-abilityname = "Mega Inferno Bomb"></td>
+      </tr>
+      <tr>
+        <td>Zilean</td>
+        <td class="ability" data-abilityname = "Time Bomb"></td>
+        <td class="ability" data-abilityname = "Rewind"></td>
+        <td class="ability" data-abilityname = "Time Warp"></td>
+        <td class="ability" data-abilityname = "Chronoshift"></td>
+      </tr>
+      <tr>
+        <td>Zoe</td>
+        <td class="ability" data-abilityname = "Paddle Star!"></td>
+        <td class="ability" data-abilityname = "Spell Thief"></td>
+        <td class="ability" data-abilityname = "Sleepy Trouble Bubble"></td>
+        <td class="ability" data-abilityname = "Portal Jump"></td>
+      </tr>
+      <tr>
+        <td>Zyra</td>
+        <td class="ability" data-abilityname = "Deadly Spines"></td>
+        <td class="ability" data-abilityname = "Rampant Growth"></td>
+        <td class="ability" data-abilityname = "Grasping Roots"></td>
+        <td class="ability" data-abilityname = "Stranglethorns"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<script src="doThings.js"></script>
+</body>
+</html>
