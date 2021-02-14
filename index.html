@@ -14,7 +14,6 @@
 <body>
 <!--- 
     TO DO:
-    0. Add to GitHub
     7. If we can do basic stuff then we can get spicy after like adding links to the abilities or videos :) 
     9. When champion row is completed please remove
     9. Add (Sort by Alphabetical Champion)
@@ -26,11 +25,13 @@
 
 <div class="container mt-3">
   <h2 class="d-flex justify-content-center">Champion Abilities 2021/02/04</h2>
-  <div class="d-flex justify-content-between">
-    <form>
-      <label for="AnswerBox">Ability Name:</label>
-      <input type="text" id="AnswerBox">
-    </form>
+    <div class="inputBox">
+      <form>
+        <label for="AnswerBox">Ability Name:</label>
+        <input type="text" id="AnswerBox">
+      </form>
+  </div>
+    <div class="d-flex justify-content-between">
     <button type="button" onclick="showAnswers()">Show Answers</button>
     <button type="button" onclick="clearAnswers()">Clear Answers</button>
     <p id="answerTotal"><span id="numerator">?</span>/<span id="denominator">total</span></p>

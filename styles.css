@@ -1,4 +1,10 @@
 #answerTotal{
     font-size: 2em;
+}
 
+
+.inputBox{
+    position: -webkit-sticky;
+position: sticky;
+top: 10px;
 }
