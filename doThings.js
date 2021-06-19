@@ -10,24 +10,23 @@ totalAbilitiesText.innerHTML = abilities.length;
 updateCount();
 //Enter answer
 
-
-//TEST//
-hideRow();
-
 //Check if answer is correct
 
 // THEN we need to check each value of it. Also do tolower
 //Then if x == y update the .text of it with it's value
 
-function checkAnswers()
+function checkAnswer()
 {
-    //alert(answerbox.value);
     //Check if the entered value is one of the abilities
     $('.ability').each(function(){
+
+        var guess = answerbox.value;
+        var abilities = $(this).data('abilityname');
+        var regex = new RegExp(abilities.join( "|" ), "i");
         
         //Answer is correct
-        if($(this).attr('data-abilityname').toLowerCase() == answerbox.value.toLowerCase()){
-            $(this).text($(this).attr('data-abilityname'));//Display the answer
+        if(regex.test(guess)){
+            $(this).text($(this).data('abilityname')[0]);//Display the answer
         }
      });
 
@@ -40,7 +39,7 @@ function checkAnswers()
 
 $("form").on("submit", function(e){
     e.preventDefault();
-    checkAnswers();
+    checkAnswer();
 });
 
 
@@ -62,10 +61,9 @@ function showAnswers()
 {
     //Iterate through each one and display the answers.
     $('.ability').each(function(){
-
-            $(this).text($(this).attr('data-abilityname'));//Display the answer
+            $(this).text($(this).data('abilityname')[0]);//Will show first acceptable answer
      });
-    
+
 
     //Display appropriate message
     var denom = abilities.length;
