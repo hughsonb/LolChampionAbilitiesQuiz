@@ -8,7 +8,6 @@ var answersCorrect = document.getElementById('numerator');
 totalAbilitiesText.innerHTML = abilities.length;
 //Count initial amount correct (Should be 0)
 updateCount();
-//Enter answer
 
 //Check if answer is correct
 
@@ -17,18 +16,19 @@ updateCount();
 
 function checkAnswer()
 {
-    //Check if the entered value is one of the abilities
-    $('.ability').each(function(){
+    var guess = answerbox.value.toLowerCase(); 
 
-        var guess = answerbox.value;
-        var abilities = $(this).data('abilityname');
-        var regex = new RegExp(abilities.join( "|" ), "i");
+    //Check if the entered value is one of the abilities
+    $('.ability').each(function()
+    {
+        //Break data attribute "abilityname" into an array in lowercase ['A1', 'A2']
+        const abilities = $(this).data('abilityname').toLowerCase().split(",");
+        const abilities_capped = $(this).data('abilityname').split(",");
         
         //Answer is correct
-        if(regex.test(guess)){
-            $(this).text($(this).data('abilityname')[0]);//Display the answer
-        }
-     });
+        if(abilities.includes(guess))
+            $(this).text(abilities_capped[0]);//Display The Most Correct Answer 
+    });
 
     //After all this updateCount
     updateCount();
@@ -46,11 +46,11 @@ $("form").on("submit", function(e){
 //Count how many elements with ability are being shown.
 function updateCount(){
     var counter = 0;
-    $('.ability').each(function(){
-        if($(this).text() !== ""){
+    $('.ability').each(function()
+    {
+        if($(this).text() !== "")
             counter++;
-        }
-     });
+    });
     answersCorrect.innerHTML = counter;
 
     hideRow();
@@ -60,15 +60,18 @@ function updateCount(){
 function showAnswers()
 {
     //Iterate through each one and display the answers.
-    $('.ability').each(function(){
-            $(this).text($(this).data('abilityname')[0]);//Will show first acceptable answer
+    $('.ability').each(function()
+    {
+        const abilities = $(this).data('abilityname').split(",");
+        if($(this).text() == "")
+            $(this).text(abilities[0]).attr('style', 'color:red');
      });
 
 
     //Display appropriate message
-    var denom = abilities.length;
-    var numer = answersCorrect.innerHTML;
-    var answer = (numer/denom)*100;
+    const denom = abilities.length;
+    const numer = answersCorrect.innerHTML;
+    const answer = (numer/denom)*100;
     alert("Your Percentage Correct is: " + parseFloat(answer).toFixed(2) + "%");
 }
 
@@ -88,21 +91,16 @@ function clearAnswers()
 
 function hideRow()
 {
-    /* I dont think we need this but I liked it 
-    $('td:first-child').each(function() {
-        console.log($(this).text());
-    });
-    */
-
-    $('tr').each(function(){
+    $('tr').each(function()
+    {
         var trLength = $(this).children('td.ability').length;
         var counter = 0;
         //This being TR and we are now looking at each td
-        $(this).find('td.ability').each (function() {
+        $(this).find('td.ability').each (function() 
+        {
+            //If ability is filled in, increment counter
             if($(this).text() !== "")
-            {
                 counter++;
-            }
 
             if(counter == trLength)
             {
