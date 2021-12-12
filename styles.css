@@ -7,3 +7,11 @@
 position: sticky;
 top: 10px;
 }
+
+table td + td { 
+    border-left: 1px solid; 
+}
+
+table, td{
+    text-align: center;
+}
