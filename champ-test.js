@@ -23,11 +23,13 @@ function checkAnswer()
     {
         //Break data attribute "abilityname" into an array in lowercase ['A1', 'A2']
         const abilities = $(this).data('abilityname').toLowerCase().split(",");
-        const abilities_capped = $(this).data('abilityname').split(",");
+        const abilities_capped = $(this).data('abilityname').split(","); //Can we break this into just the firsta bilitiy
         
         //Answer is correct
         if(abilities.includes(guess))
-            $(this).text(abilities_capped[0]);//Display The Most Correct Answer 
+        {
+            $(this).find('a').text(abilities_capped[0]).attr('style', 'color:white');//Display The Most Correct Answer 
+        }
     });
 
     //After all this updateCount
@@ -45,15 +47,15 @@ $("form").on("submit", function(e){
 
 //Count how many elements with ability are being shown.
 function updateCount(){
-    var counter = 0;
+    let counter = 0;
     $('.ability').each(function()
     {
-        if($(this).text() !== "")
+        if($(this).text().trim() !== "")
             counter++;
     });
     answersCorrect.innerHTML = counter;
 
-    hideRow();
+    //hideRow();
 }
 
 
@@ -63,8 +65,8 @@ function showAnswers()
     $('.ability').each(function()
     {
         const abilities = $(this).data('abilityname').split(",");
-        if($(this).text() == "")
-            $(this).text(abilities[0]).attr('style', 'color:red');
+        if($(this).text().trim() == "")
+            $(this).find('a').text(abilities[0]).attr('style', 'color:red');
      });
 
 
@@ -77,9 +79,9 @@ function showAnswers()
 
 function clearAnswers()
 {
-        //Iterate through each one and hide the answers.
-        $('.ability').each(function(){
-            $(this).text("");//Display the answer
+    //Iterate through each one and hide the answers.
+    $('.ability').each(function(){
+            $(this).find('a').text('\xa0'); // Reset answer to a space
      });
 
      $('tr').each(function(){
