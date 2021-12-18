@@ -3,6 +3,9 @@ var abilities = document.getElementsByClassName('ability');
 var totalAbilitiesText = document.getElementById('denominator');
 var answersCorrect = document.getElementById('numerator');
 
+var toggleButton = document.getElementById('toggleButton');
+var hide_rows_bool = true;
+
 
 //Count the total abilities
 totalAbilitiesText.innerHTML = abilities.length;
@@ -28,12 +31,12 @@ function checkAnswer()
         //Answer is correct
         if(abilities.includes(guess))
         {
-            $(this).find('a').text(abilities_capped[0]).attr('style', 'color:white');//Display The Most Correct Answer 
+            $(this).find('a').text(abilities_capped[0]).attr('style', 'color:white');//Display The Most Correct Answer
+            
+            //if answer is correct then update the count
+            updateCount(); 
         }
     });
-
-    //After all this updateCount
-    updateCount();
     //Reset Answer 
     answerbox.value= "";
 }
@@ -55,7 +58,10 @@ function updateCount(){
     });
     answersCorrect.innerHTML = counter;
 
-    //hideRow();
+    if(hide_rows_bool)
+    {
+        hideRows();
+    }
 }
 
 
@@ -69,7 +75,11 @@ function showAnswers()
             $(this).find('a').text(abilities[0]).attr('style', 'color:red');
      });
 
+    //Disable the input box so people don't do stupid stuff
+    answerbox.disabled = true;
 
+     //Show answers 
+     showRows();
     //Display appropriate message
     const denom = abilities.length;
     const numer = answersCorrect.innerHTML;
@@ -84,32 +94,58 @@ function clearAnswers()
             $(this).find('a').text('\xa0'); // Reset answer to a space
      });
 
-     $('tr').each(function(){
-        $(this).show();
-     });
+     answerbox.disabled = false;
 
+     showRows();
      updateCount();
 }
 
-function hideRow()
+function hideRows()
 {
     $('tr').each(function()
     {
         var trLength = $(this).children('td.ability').length;
-        var counter = 0;
+        var answercounter = 0;
         //This being TR and we are now looking at each td
         $(this).find('td.ability').each (function() 
         {
             //If ability is filled in, increment counter
-            if($(this).text() !== "")
-                counter++;
+            if($(this).text().trim() !== "")
+                answercounter++;
 
-            if(counter == trLength)
+            if(answercounter == trLength)
             {
                 $(this).parent().hide();
             }
         });  
-        counter = 0;                      
+        answercounter = 0;                      
     });
 
+}
+
+function showRows()
+{
+    $('tr').each(function(){
+        $(this).show();
+     });
+}
+
+function showhideRows()
+{
+    //alternate the text
+    //if bool is true
+    if(hide_rows_bool)
+    {
+        showRows();
+        //Change text to Hide Completed Rows and updated boolean
+        toggleButton.innerHTML = "Hide Completed Rows";
+        hide_rows_bool = !hide_rows_bool;
+    }
+    else //Change it to Show Completed Rows
+    {   
+        hideRows();
+        toggleButton.innerHTML = "Show Completed Rows";
+        hide_rows_bool = !hide_rows_bool;
+    }
+    //Update other functions 
 }
